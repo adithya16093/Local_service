@@ -1,0 +1,552 @@
+/* --- FONTS & GLOBAL STYLES --- */
+/* This file relies on variables from index.css */
+
+/* --- MAIN DASHBOARD LAYOUT --- */
+.provider-dashboard {
+    display: flex;
+    min-height: 100vh;
+    background: var(--dark-bg);
+}
+
+.full-page-loader {
+    width: 100vw; 
+    height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    background: var(--dark-bg);
+}
+.loader { 
+    width: 50px; 
+    height: 50px; 
+    border: 5px solid var(--border-color); 
+    border-top-color: var(--primary-color); 
+    border-radius: 50%; 
+    animation: spin 1s linear infinite; 
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    background: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    flex-shrink: 0;
+}
+.sidebar-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 0 3rem 0;
+    text-align: center;
+    background: linear-gradient(90deg, var(--primary-light), var(--accent-color));
+    -webkit-background-clip: text; 
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.sidebar-links {
+    display: flex; 
+    flex-direction: column; 
+    gap: 0.5rem;
+}
+.sidebar-link {
+    display: flex; 
+    align-items: center; 
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    background: transparent; 
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem; 
+    font-weight: 500;
+    text-align: left; 
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+.sidebar-link:hover {
+    background: var(--dark-bg);
+    color: var(--text-primary);
+}
+.sidebar-link.active {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(138, 120, 241, 0.2);
+}
+.notification-badge {
+    margin-left: auto;
+    background: var(--warning-color);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.signout-btn-sidebar {
+    margin-top: 2rem;
+}
+.signout-btn-sidebar:hover {
+    color: var(--error-color);
+    background: rgba(231, 76, 60, 0.1);
+}
+
+/* --- MAIN CONTENT & HEADER --- */
+.dashboard-main-content {
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column;
+    max-height: 100vh;
+}
+.main-header {
+    padding: 1.5rem 2.5rem; 
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    flex-shrink: 0;
+}
+.header-title { 
+    font-size: 1.8rem; 
+    margin: 0; 
+    font-weight: 600; 
+}
+
+.content-area { 
+    padding: 2.5rem; 
+    overflow-y: auto; 
+}
+
+/* --- STATS CARDS (OVERVIEW) --- */
+.stats-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 1.5rem; 
+    margin-bottom: 2.5rem; 
+}
+.stat-card {
+    background: var(--card-bg); 
+    border-radius: 12px; 
+    padding: 1.5rem;
+    display: flex; 
+    align-items: center; 
+    gap: 1rem;
+    border: 1px solid var(--border-color);
+    border-left: 4px solid; /* color set inline */
+}
+.stat-icon {
+  color: white; 
+  width: 50px; 
+  height: 50px; 
+  border-radius: 12px;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  flex-shrink: 0;
+}
+.stat-info { 
+    display: flex; 
+    flex-direction: column; 
+}
+.stat-title { 
+    font-size: 0.9rem; 
+    color: var(--text-secondary); 
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+.stat-value { 
+    font-size: 1.8rem; 
+    font-weight: 700; 
+}
+
+/* --- CONTENT PANELS & FORMS --- */
+.content-panel { 
+    background: var(--card-bg); 
+    border: 1px solid var(--border-color); 
+    border-radius: 16px; 
+    padding: 2rem; 
+    animation: fadeIn 0.4s ease-out; 
+}
+.panel-header { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem; 
+    margin-top: 0; 
+    font-size: 1.5rem; 
+    font-weight: 600; 
+    margin-bottom: 1rem; 
+}
+.panel-subtitle { 
+    color: var(--text-secondary); 
+    margin-top: -0.5rem; 
+    margin-bottom: 2rem; 
+    max-width: 80%; 
+}
+.provider-form { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem; 
+}
+.form-group.full-width { 
+    grid-column: 1 / -1; 
+}
+.form-input, .form-select, .form-textarea {
+    width: 100%; 
+    padding: 12px; 
+    background: var(--dark-bg);
+    border: 1px solid var(--border-color); 
+    border-radius: 8px;
+    color: var(--text-primary); 
+    font-size: 1rem;
+    box-sizing: border-box; 
+    font-family: inherit; 
+    transition: all 0.2s;
+}
+.form-textarea { 
+    resize: vertical; 
+    min-height: 120px; 
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { 
+    outline: none; 
+    border-color: var(--primary-color); 
+    box-shadow: 0 0 0 3px rgba(138, 120, 241, 0.2); 
+}
+.btn.btn-primary.full-width-btn { 
+    width: 100%; 
+    padding: 1rem; 
+    font-size: 1.1rem; 
+}
+
+/* --- SERVICE LIST TABLE --- */
+.table-wrapper { 
+    overflow-x: auto; 
+}
+.provider-table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    font-size: 1rem; 
+}
+.provider-table th, .provider-table td { 
+    padding: 1rem 1.5rem; 
+    text-align: left; 
+    border-bottom: 1px solid var(--border-color); 
+}
+.provider-table th { 
+    font-weight: 600; 
+    color: var(--text-secondary); 
+    white-space: nowrap; 
+    text-transform: uppercase; 
+    font-size: 0.8rem; 
+}
+.provider-table td { 
+    vertical-align: middle; 
+}
+.provider-table tbody tr:hover { 
+    background: var(--dark-bg); 
+}
+.service-name-cell { 
+    display: flex; 
+    align-items: center; 
+    gap: 1rem; 
+}
+.service-name-cell img { 
+    width: 45px; 
+    height: 45px; 
+    border-radius: 8px; 
+    object-fit: cover; 
+}
+.actions-cell { 
+    display: flex; 
+    gap: 0.5rem; 
+}
+.btn-icon { 
+    background: var(--dark-bg); 
+    border: 1px solid var(--border-color); 
+    color: var(--text-secondary); 
+    padding: 0.5rem; 
+    border-radius: 6px; 
+    cursor: pointer; 
+    transition: all 0.2s; 
+    display: flex; 
+}
+.btn-icon:hover { 
+    background: var(--border-color); 
+    color: var(--text-primary); 
+}
+.btn-icon-danger:hover { 
+    color: var(--error-color); 
+}
+.status-badge { 
+    padding: 4px 10px; 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    text-transform: capitalize; 
+}
+.status-badge.pending { 
+    background-color: rgba(243, 156, 18, 0.15); 
+    color: var(--warning-color); 
+}
+.status-badge.approved { 
+    background-color: rgba(46, 204, 113, 0.15); 
+    color: var(--success-color); 
+}
+.status-badge.rejected { 
+    background-color: rgba(231, 76, 60, 0.15); 
+    color: var(--error-color); 
+}
+.empty-state { 
+    color: var(--text-secondary); 
+    text-align: center; 
+    padding: 3rem; 
+}
+
+/* --- SCHEDULE EDITOR --- */
+.schedule-editor { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1rem; 
+}
+.schedule-day-row { 
+    display: grid; 
+    grid-template-columns: 120px 1fr auto; 
+    align-items: center; 
+    gap: 1.5rem; 
+    background: var(--dark-bg); 
+    padding: 1rem 1.5rem; 
+    border-radius: 10px; 
+    border: 1px solid var(--border-color); 
+    transition: all 0.2s; 
+}
+.schedule-day-row.available { 
+    border-left: 4px solid var(--success-color); 
+}
+.schedule-day-label { 
+    font-weight: 600; 
+}
+.schedule-time-inputs { 
+    display: flex; 
+    align-items: center; 
+    gap: 0.75rem; 
+    transition: opacity 0.3s; 
+}
+.schedule-time-inputs input[type="time"] { 
+    background: var(--card-bg); 
+    border: 1px solid var(--border-color); 
+    color: var(--text-primary); 
+    padding: 8px; 
+    border-radius: 6px; 
+    font-family: inherit; 
+}
+.schedule-time-inputs input[type="time"]::-webkit-calendar-picker-indicator { 
+    filter: invert(0.8); 
+}
+.panel-footer { 
+    border-top: 1px solid var(--border-color); 
+    margin-top: 1.5rem; 
+    padding-top: 1.5rem; 
+    display: flex; 
+    justify-content: flex-end; 
+}
+/* Toggle Switch */
+.toggle-switch { 
+    position: relative; 
+    display: inline-block; 
+    width: 50px; 
+    height: 28px; 
+}
+.toggle-switch input { 
+    opacity: 0; 
+    width: 0; 
+    height: 0; 
+}
+.slider { 
+    position: absolute; 
+    cursor: pointer; 
+    top: 0; left: 0; right: 0; bottom: 0; 
+    background-color: var(--border-color); 
+    transition: .4s; 
+    border-radius: 28px; 
+}
+.slider:before { 
+    position: absolute; 
+    content: ""; 
+    height: 20px; 
+    width: 20px; 
+    left: 4px; 
+    bottom: 4px; 
+    background-color: white; 
+    transition: .4s; 
+    border-radius: 50%; 
+}
+input:checked + .slider { 
+    background-color: var(--success-color); 
+}
+input:checked + .slider:before { 
+    transform: translateX(22px); 
+}
+
+/* --- BOOKING LIST --- */
+.provider-bookings-list { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 1.5rem; 
+}
+.provider-booking-card { 
+    background-color: var(--dark-bg); 
+    border: 1px solid var(--border-color); 
+    border-radius: 12px; 
+}
+.provider-card-main { 
+    display: flex; 
+    justify-content: space-between; 
+    gap: 1rem; 
+    padding: 1.5rem; 
+}
+.provider-card-details h4 { 
+    margin: 0 0 1rem 0; 
+    font-size: 1.25rem; 
+}
+.provider-card-details p { 
+    margin: 0.5rem 0; 
+    color: var(--text-secondary); 
+}
+.provider-card-details p strong { 
+    color: var(--text-primary); 
+    font-weight: 500; 
+}
+.review-display-provider { 
+    margin-top: 1rem; 
+    padding-top: 1rem; 
+    border-top: 1px solid var(--border-color); 
+}
+.star-rating-display { 
+    display: flex; 
+    gap: 0.1rem; 
+    color: var(--warning-color); 
+}
+.star-rating-display .star-empty { 
+    color: var(--border-color); 
+}
+.review-comment-provider { 
+    font-style: italic; 
+    color: var(--text-secondary); 
+    margin-top: 0.5rem; 
+}
+.provider-card-status { 
+    flex-shrink: 0; 
+}
+.provider-card-actions { 
+    background: var(--card-bg); 
+    padding: 1rem 1.5rem; 
+    border-top: 1px solid var(--border-color); 
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 1rem; 
+    border-bottom-left-radius: 12px; 
+    border-bottom-right-radius: 12px; 
+}
+.btn.btn-small { 
+    padding: 8px 16px; 
+    font-size: 0.9rem; 
+}
+.btn.btn-small.success { 
+    background-color: var(--success-color); 
+    color: white; 
+}
+.btn.btn-small.danger { 
+    background-color: var(--error-color); 
+    color: white; 
+}
+.btn.btn-small.primary { 
+    background-color: var(--primary-color); 
+    color: white; 
+}
+.status-badge.confirmed { 
+    background-color: rgba(138, 120, 241, 0.15); 
+    color: var(--primary-light); 
+}
+.status-badge.completed { 
+    background-color: rgba(46, 204, 113, 0.15); 
+    color: var(--success-color); 
+}
+.status-badge.cancelled { 
+    background-color: rgba(231, 76, 60, 0.15); 
+    color: var(--error-color); 
+}
+
+/* --- MODAL STYLES --- */
+.modal-overlay { 
+    position: fixed; 
+    inset: 0; 
+    background: rgba(15, 16, 20, 0.7); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 1000; 
+    backdrop-filter: blur(5px); 
+}
+.modal-content { 
+    background: var(--card-bg); 
+    border: 1px solid var(--border-color); 
+    padding: 2rem; 
+    border-radius: 16px; 
+    width: 90%; 
+    max-width: 650px; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+    animation: fadeIn 0.3s ease-out; 
+}
+.modal-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1.5rem; 
+}
+.modal-header h3 { 
+    margin: 0; 
+    font-size: 1.5rem; 
+}
+.modal-actions { 
+    display: flex; 
+    justify-content: flex-end; 
+    gap: 1rem; 
+    margin-top: 2rem; 
+}
+.modal-form-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 1.5rem; 
+}
+.modal-form-grid .full-width { 
+    grid-column: 1 / -1; 
+}
+.confirm-delete-modal p { 
+    color: var(--text-secondary); 
+    margin-bottom: 1.5rem; 
+    font-size: 1.1rem; 
+    line-height: 1.6; 
+}
+.confirm-delete-modal p strong { 
+    color: var(--text-primary); 
+    font-weight: 600; 
+}
+.btn.btn-danger { 
+    background: var(--error-color); 
+    color: white; 
+}
+.close-btn { 
+    background: none; 
+    border: none; 
+    font-size: 2rem; 
+    color: var(--text-secondary); 
+    cursor: pointer; 
+    line-height: 1; 
+}

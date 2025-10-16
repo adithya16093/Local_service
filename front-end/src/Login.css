@@ -1,0 +1,312 @@
+/* This file now relies on variables from index.css */
+
+
+/* --- Main Container & Layout --- */
+.login-container {
+    min-height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+
+
+/* --- 1. Form Panel (Left Side) --- */
+.form-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.form-content {
+    width: 100%;
+    max-width: 400px;
+    animation: slideInUp 0.7s ease-out;
+}
+
+@keyframes slideInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.back-to-home {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: color 0.3s ease;
+}
+
+.back-to-home:hover {
+    color: var(--primary-light);
+}
+
+.form-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.form-header p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+
+/* --- Inputs & Icons --- */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.input-group {
+    position: relative;
+    animation: slideInUp 0.7s ease-out both;
+}
+.input-group:nth-child(1) { animation-delay: 0.1s; }
+.input-group:nth-child(2) { animation-delay: 0.2s; }
+
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 0.9rem 1rem 0.9rem 3rem;
+    background-color: var(--card-bg); /* Changed for better contrast */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.login-form input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.login-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(138, 120, 241, 0.2);
+}
+
+.login-form input:focus + .input-icon {
+    color: var(--primary-color);
+}
+
+/* --- Form Options (Forgot Password) --- */
+.form-options {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    animation: slideInUp 0.7s ease-out both;
+    animation-delay: 0.3s;
+}
+
+.forgot-password {
+    font-size: 0.85rem;
+    color: var(--primary-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+/* --- Submit Button --- */
+.submit-btn {
+    padding: 1rem;
+    background: var(--primary-color);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(138, 120, 241, 0.2);
+    animation: slideInUp 0.7s ease-out both;
+    animation-delay: 0.4s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    background: var(--primary-light);
+    box-shadow: 0 6px 20px rgba(138, 120, 241, 0.3);
+}
+
+
+/* --- OR Divider & Social Login --- */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #666 !important;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 2rem 0;
+    animation: slideInUp 0.7s ease-out both;
+    animation-delay: 0.5s;
+}
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #bbb !important;
+    margin: 0 1rem;
+}
+.divider:not(:empty)::before { margin-right: 1rem; }
+.divider:not(:empty)::after { margin-left: 1rem; }
+
+.social-logins {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: slideInUp 0.7s ease-out both;
+    animation-delay: 0.6s;
+}
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: transparent;
+    border: 1px solid #444 !important;
+    border-radius: var(--border-radius-sm, 8px);
+    color: #444 !important;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.social-btn:hover {
+    background-color: #eee !important;
+}
+.social-btn svg {
+    color: #666 !important;
+}
+
+
+/* --- Switch to Signup Link --- */
+.switch-text {
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 2rem;
+    color: #444 !important;
+    animation: slideInUp 0.7s ease-out both;
+    animation-delay: 0.7s;
+}
+.switch-text a {
+    color: #0563bb !important;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.switch-text a:hover {
+    text-decoration: underline;
+    color: #0a6cd9 !important;
+}
+
+
+/* --- 2. Branding Panel (Right Side) --- */
+.branding-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+    background: linear-gradient(160deg, #1e1e2d 0%, #17122d 30%, #0c0d1b 100%);
+    position: relative;
+    overflow: hidden;
+}
+.branding-content {
+    z-index: 2;
+    animation: fadeIn 1s ease-out;
+}
+.branding-panel h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(90deg, var(--primary-light), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.branding-panel p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+
+/* Animated background shapes */
+.branding-panel::before, .branding-panel::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(138, 120, 241, 0.1);
+    filter: blur(80px);
+    z-index: 1;
+    animation: float 15s infinite alternate;
+}
+.branding-panel::after {
+    width: 300px;
+    height: 300px;
+    bottom: -15%;
+    left: -15%;
+    background: rgba(244, 114, 182, 0.1);
+    animation: float 12s infinite alternate;
+    animation-delay: -3s;
+}
+@keyframes float {
+    0% { transform: translateY(20px) translateX(-20px) scale(1); }
+    100% { transform: translateY(-20px) translateX(20px) scale(1.1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .login-container {
+        grid-template-columns: 1fr;
+    }
+    .branding-panel {
+        display: none;
+    }
+    .form-panel {
+        padding: 2rem 1rem;
+    }
+}

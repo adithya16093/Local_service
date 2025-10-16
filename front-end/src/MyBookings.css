@@ -1,0 +1,146 @@
+/* This file now relies on variables and fonts from index.css */
+
+.my-bookings-page {
+  min-height: 100vh;
+}
+
+/* --- HEADER --- */
+.bookings-header {
+  padding: 1rem 2rem;
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  cursor: pointer; font-size: 1.5rem; font-weight: 700;
+  background: linear-gradient(90deg, var(--primary-light), var(--accent-color));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.back-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background-color: transparent; color: var(--text-secondary);
+  border: 1px solid var(--border-color); border-radius: 8px;
+  padding: 0.6rem 1.2rem; font-family: inherit; font-size: 0.9rem;
+  font-weight: 500; text-decoration: none; cursor: pointer;
+  transition: all 0.2s ease;
+}
+.back-btn:hover {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* --- MAIN CONTAINER & TITLE --- */
+.bookings-container {
+  max-width: 900px; margin: 0 auto; padding: 3rem 2rem;
+}
+.bookings-title-section { text-align: center; }
+.bookings-container h1 { font-size: 3rem; margin: 0 0 0.5rem 0; font-weight: 700; }
+.bookings-container > .bookings-title-section > p {
+  color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 3rem;
+}
+
+/* --- TAB NAVIGATION --- */
+.bookings-tabs {
+    display: flex; gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2.5rem;
+}
+.tab-btn {
+    background: transparent; border: none;
+    color: var(--text-secondary);
+    padding: 0.8rem 0.5rem;
+    font-size: 1rem; font-weight: 600;
+    cursor: pointer; position: relative;
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+}
+.tab-btn.active {
+    color: var(--primary-light);
+    border-bottom-color: var(--primary-light);
+}
+
+/* --- BOOKINGS LIST & CARDS --- */
+.bookings-list {
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.booking-card {
+  background: var(--card-bg); border: 1px solid var(--border-color);
+  border-left: 4px solid var(--border-color);
+  border-radius: 12px;
+  transition: all 0.2s;
+  animation: fadeIn 0.4s ease-out;
+}
+.booking-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Status colors for the left border */
+.booking-card.pending, .booking-card.confirmed { border-left-color: var(--primary-color); }
+.booking-card.completed { border-left-color: var(--success-color); }
+.booking-card.cancelled { border-left-color: var(--error-color); }
+
+.booking-card-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.5rem 1.5rem 1rem 1.5rem;
+}
+.booking-card-header h3 { margin: 0; font-size: 1.25rem; font-weight: 600; }
+.booking-status {
+  padding: 4px 12px; border-radius: 20px; font-size: 0.8rem;
+  font-weight: 600; text-transform: capitalize;
+}
+.booking-status.pending { background-color: rgba(243, 156, 18, 0.15); color: var(--warning-color); }
+.booking-status.confirmed { background-color: rgba(138, 120, 241, 0.15); color: var(--primary-light); }
+.booking-status.completed { background-color: rgba(46, 204, 113, 0.15); color: var(--success-color); }
+.booking-status.cancelled { background-color: rgba(231, 76, 60, 0.15); color: var(--error-color); }
+
+.booking-card-body { padding: 0 1.5rem 1.5rem 1.5rem; }
+.booking-card-body p { margin: 0.5rem 0; color: var(--text-secondary); }
+.booking-card-body strong { color: var(--text-primary); font-weight: 500; }
+
+.booking-card-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 1rem 1.5rem;
+  background-color: var(--dark-bg);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.review-display h4 { 
+  margin: 0 0 0.75rem 0; font-size: 0.9rem; font-weight: 500; 
+  color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px;
+}
+.star-rating-display { display: flex; gap: 0.1rem; font-size: 1.25rem; }
+.star-rating-display .star-filled { color: var(--warning-color); }
+.star-rating-display .star-empty { color: var(--border-color); }
+.review-comment {
+  font-style: italic; color: var(--text-secondary); margin-top: 0.75rem;
+  padding-left: 1rem; border-left: 3px solid var(--border-color);
+}
+
+/* --- NO BOOKINGS STATE --- */
+.no-bookings {
+  text-align: center; padding: 4rem 2rem; background: var(--card-bg);
+  border-radius: 16px; border: 1px dashed var(--border-color);
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem;
+}
+.no-bookings-icon { color: var(--primary-color); }
+.no-bookings h3 { margin: 0; font-size: 1.5rem; }
+.no-bookings p { margin: 0; font-size: 1.1rem; color: var(--text-secondary); }
+
+/* --- LOADER --- */
+.loader-container { min-height: 40vh; display: flex; justify-content: center; align-items: center; }
+.loader { 
+    width: 50px; height: 50px; border: 5px solid var(--border-color); 
+    border-top-color: var(--primary-color); border-radius: 50%; 
+    animation: spin 1s linear infinite; 
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

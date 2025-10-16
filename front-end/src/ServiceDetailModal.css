@@ -1,0 +1,189 @@
+/* This file now relies on variables from index.css */
+
+.detail-modal {
+    max-width: 600px;
+    padding: 0;
+    overflow: hidden; /* Important for border-radius on image */
+}
+
+.detail-modal-header {
+    position: relative;
+    height: 250px;
+    background-color: var(--dark-bg);
+}
+
+.detail-modal-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.detail-modal .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(15, 16, 20, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.2s;
+    padding: 0;
+}
+
+.detail-modal .close-btn:hover {
+    background: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.detail-modal-body {
+    padding: 2rem;
+}
+
+.detail-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.detail-title-section h2 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.detail-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    flex-shrink: 0;
+}
+
+.detail-star-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-star-rating .star-filled {
+    color: var(--warning-color);
+    fill: var(--warning-color);
+}
+
+.detail-star-rating .star-empty {
+    color: var(--border-color);
+}
+
+.detail-rating-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-left: 0.5rem;
+}
+
+.detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.detail-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--dark-bg);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+}
+
+.detail-description {
+    color: var(--text-primary);
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 0; /* Removed bottom margin as actions footer has top margin */
+}
+
+/* ✨ Added Rating Section ✨ */
+.give-rating {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.give-rating h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.star-input {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 1rem;
+}
+
+.star-input .star-filled {
+    stroke: var(--warning-color);
+    fill: var(--warning-color);
+}
+
+.star-input .star-empty {
+    stroke: var(--border-color);
+    fill: none;
+}
+
+.rating-textarea {
+    width: 100%;
+    min-height: 90px;
+    border: 1px solid var(--border-color);
+    background: var(--dark-bg);
+    border-radius: var(--border-radius);
+    padding: 10px;
+    resize: vertical;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.rating-textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.detail-modal .modal-actions {
+    padding: 1.5rem 2rem;
+    background: var(--dark-bg);
+    border-top: 1px solid var(--border-color);
+    margin: 0; /* Reset margin */
+}
+

@@ -1,0 +1,120 @@
+/* This file now relies on variables from index.css */
+
+.rating-modal {
+    max-width: 500px;
+    text-align: center; /* Center align all content */
+}
+
+.rating-modal .modal-header h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 100%; /* Ensure title is centered */
+}
+
+.rating-modal .rating-body {
+    padding: 1rem 0;
+    color: var(--text-secondary);
+}
+.rating-modal .rating-body p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.rating-modal .rating-body strong {
+    color: var(--primary-light);
+    font-weight: 500;
+}
+
+.star-rating-input {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+.star-svg {
+    cursor: pointer;
+    color: var(--border-color);
+    transition: all 0.2s ease-in-out;
+}
+
+.star-svg:hover {
+    transform: scale(1.15) translateY(-2px);
+    color: var(--warning-color); /* Gold color for stars */
+}
+
+.star-svg.filled {
+    color: var(--warning-color);
+    fill: var(--warning-color);
+}
+
+.rating-descriptor {
+    min-height: 24px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: opacity 0.2s;
+}
+
+.rating-modal .form-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px;
+    margin-top: 1.5rem;
+    background: var(--dark-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    color: var(--text-primary);
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: all 0.2s;
+}
+
+.rating-modal .form-textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.rating-modal .form-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(138, 120, 241, 0.2);
+}
+
+/* Base modal styles this component might rely on */
+.modal-overlay { 
+    position: fixed; inset: 0; background: rgba(15, 16, 20, 0.7); 
+    display: flex; justify-content: center; align-items: center; 
+    z-index: 1000; backdrop-filter: blur(5px); 
+}
+.modal-content { 
+    background: var(--card-bg); border: 1px solid var(--border-color); 
+    padding: 2rem; border-radius: 16px; width: 90%; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3); 
+    animation: fadeIn 0.3s ease-out;
+}
+.modal-header { 
+    display: flex; justify-content: space-between; align-items: center; 
+    margin-bottom: 1.5rem; 
+}
+.modal-actions { 
+    display: flex; justify-content: flex-end; gap: 1rem; 
+    margin-top: 1.5rem; 
+}
+.btn { 
+    border: none; padding: 12px 20px; border-radius: var(--border-radius-sm); 
+    font-weight: 500; cursor: pointer; transition: 0.2s; 
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; 
+}
+.btn-primary { background: var(--primary-color); color: white; }
+.btn-secondary { background: var(--border-color); color: var(--text-primary); }
+.btn-primary:hover { background-color: var(--primary-light); }
+.btn-secondary:hover { background-color: #3a3b43; }
+.close-btn { 
+    background: none; border: none; color: var(--text-secondary); 
+    font-size: 2rem; cursor: pointer; line-height: 1; padding: 0; 
+    position: absolute; top: 1.5rem; right: 1.5rem; 
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
